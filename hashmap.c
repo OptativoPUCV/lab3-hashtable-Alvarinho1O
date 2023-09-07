@@ -122,7 +122,7 @@ int pos = hash(key,map->capacity);
 Pair * searchMap(HashMap * map,  char * key) {   
   int pos = hash(key,map->capacity);
 
-  if(map->buckets[pos] == NULL) return NULL; 
+  if(map->buckets[pos] != NULL) return NULL; 
 
   if(strcmp(map->buckets[pos]->key,key) == 0)
   {
