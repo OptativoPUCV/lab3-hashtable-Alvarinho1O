@@ -131,3 +131,9 @@ hashmap.c:121:25: error: expected ‘;’ before ‘return’
       |         ~~~~~~           
 Compilation failed
 bdef992
+Thu 07 Sep 2023 07:04:36 PM UTC: 
+ hashmap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+ tests:  5|5
+total_score: 20/70
+cf967c2
