@@ -29,3 +29,34 @@ Thu 07 Sep 2023 05:10:03 PM UTC:
  tests:  3|6
 total_score: 10/70
 5900429
+Thu 07 Sep 2023 05:32:57 PM UTC: 
+ hashmap.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:79:17: error: invalid initializer
+   79 |   HashMap map = malloc(sizeof(HashMap));
+      |                 ^~~~~~
+hashmap.c:80:10: error: invalid operands to binary == (have ‘HashMap’ {aka ‘struct HashMap’} and ‘void *’)
+   80 |   if(map == NULL) exit(EXIT_FAILURE);
+      |          ^~
+hashmap.c:82:6: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   82 |   map->buckets = malloc(sizeof(Pair ) * capacity);
+      |      ^~
+hashmap.c:86:8: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   86 |     map->buckets[i] = NULL
+      |        ^~
+hashmap.c:87:3: error: expected ‘;’ before ‘}’ token
+   87 |   }
+      |   ^
+hashmap.c:89:6: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   89 |   map->size = 0;
+      |      ^~
+hashmap.c:90:6: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   90 |   map->current = 1;
+      |      ^~
+hashmap.c:91:6: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   91 |   map->capacity = capacity;
+      |      ^~
+Compilation failed
+be918a5
