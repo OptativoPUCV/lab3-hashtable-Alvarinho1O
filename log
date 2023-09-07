@@ -761,3 +761,71 @@ hashmap.c:97:18: error: incompatible types when assigning to type ‘Pair **’ 
       |                  ^~~~~~~~~~~
 Compilation failed
 8b65e21
+Thu 07 Sep 2023 09:23:24 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c:71:6: error: conflicting types for ‘enlarge’
+   71 | void enlarge(HashMap map) {
+      |      ^~~~~~~
+In file included from hashmap.c:6,
+                 from test.c:4:
+hashmap.h:32:6: note: previous declaration of ‘enlarge’ was here
+   32 | void enlarge(HashMap * map);
+      |      ^~~~~~~
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:74:11: error: invalid operands to binary == (have ‘HashMap’ {aka ‘struct HashMap’} and ‘void *’)
+   74 |   if (map == NULL) {
+      |           ^~
+hashmap.c:78:26: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   78 |   long new_capacity = map->capacity * 2;
+      |                          ^~
+hashmap.c:79:3: error: conversion to non-scalar type requested
+   79 |   Pair new_buckets = (Pair)calloc(new_capacity, sizeof(Pair));
+      |   ^~~~
+hashmap.c:81:19: error: invalid operands to binary != (have ‘Pair’ and ‘void *’)
+   81 |   if (new_buckets != NULL) {
+      |                   ^~
+hashmap.c:85:27: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   85 |   for (long i = 0; i < map->capacity; i++) {
+      |                           ^~
+hashmap.c:86:27: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   86 |     Pair currentPair = map->buckets[i];
+      |                           ^~
+hashmap.c:87:21: error: invalid operands to binary != (have ‘Pair’ and ‘void *’)
+   87 |     if (currentPair != NULL && currentPair->key != NULL) {
+      |                     ^~
+hashmap.c:87:43: error: invalid type argument of ‘->’ (have ‘Pair’)
+   87 |     if (currentPair != NULL && currentPair->key != NULL) {
+      |                                           ^~
+hashmap.c:88:34: error: invalid type argument of ‘->’ (have ‘Pair’)
+   88 |       long pos = hash(currentPair->key, new_capacity);
+      |                                  ^~
+hashmap.c:89:25: error: subscripted value is neither array nor pointer nor vector
+   89 |       while (new_buckets[pos] == NULL) {
+      |                         ^
+hashmap.c:92:18: error: subscripted value is neither array nor pointer nor vector
+   92 |       new_buckets[pos] = currentPair;
+      |                  ^
+hashmap.c:96:11: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   96 |   free(map->buckets);
+      |           ^~
+hashmap.c:97:6: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   97 |   map->buckets = new_buckets;
+      |      ^~
+hashmap.c:98:6: error: invalid type argument of ‘->’ (have ‘HashMap’ {aka ‘struct HashMap’})
+   98 |   map->capacity = new_capacity;
+      |      ^~
+test.c: In function ‘enlarge_test’:
+test.c:433:13: error: incompatible type for argument 1 of ‘enlarge’
+  433 |     enlarge(map);
+      |             ^~~
+      |             |
+      |             HashMap * {aka struct HashMap *}
+In file included from test.c:4:
+hashmap.c:71:22: note: expected ‘HashMap’ {aka ‘struct HashMap’} but argument is of type ‘HashMap *’ {aka ‘struct HashMap *’}
+   71 | void enlarge(HashMap map) {
+      |              ~~~~~~~~^~~
+Compilation failed
+ae1933a

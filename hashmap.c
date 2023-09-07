@@ -68,7 +68,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 }
 
-void enlarge(HashMap* map) {
+void enlarge(HashMap map) {
   enlarge_called = 1;
 
   if (map == NULL) {
