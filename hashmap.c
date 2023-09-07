@@ -109,11 +109,11 @@ int pos = hash(key,map->capacity);
       {
         int  j= i % map->capacity; 
         if(map->buckets[j] == NULL) return;
-
         if(strcmp(map->buckets[j]->key,key) == 0)
         {
           map->buckets[j]->key = NULL;
           return;
+        }
       }
   }
 
