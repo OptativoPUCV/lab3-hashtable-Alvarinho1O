@@ -468,3 +468,22 @@ hashmap.c:98:16: error: assignment to ‘Pair **’ from incompatible pointer ty
 cc1: all warnings being treated as errors
 Compilation failed
 b7a9ecd
+Thu 07 Sep 2023 09:16:15 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:89:31: error: invalid operands to binary != (have ‘Pair’ and ‘void *’)
+   89 |       while (new_buckets[pos] != NULL) {
+      |              ~~~~~~~~~~~~~~~~ ^~
+      |                         |
+      |                         Pair
+hashmap.c:92:26: error: incompatible types when assigning to type ‘Pair’ from type ‘Pair *’
+   92 |       new_buckets[pos] = currentPair;
+      |                          ^~~~~~~~~~~
+hashmap.c:98:16: error: assignment to ‘Pair **’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   98 |   map->buckets = new_buckets;
+      |                ^
+cc1: all warnings being treated as errors
+Compilation failed
+d6e744a
