@@ -143,7 +143,7 @@ Pair * searchMap(HashMap * map,  char * key) {
         return map->buckets[j];
       }
     }
-    return NULL;
+    return ;
   }
 }
 

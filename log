@@ -192,3 +192,17 @@ Thu 07 Sep 2023 07:13:19 PM UTC:
  tests:  8|4
 total_score: 30/70
 cdf6f6a
+Thu 07 Sep 2023 07:16:58 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:146:5: error: ‘return’ with no value, in function returning non-void [-Werror=return-type]
+  146 |     return ;
+      |     ^~~~~~
+hashmap.c:122:8: note: declared here
+  122 | Pair * searchMap(HashMap * map,  char * key) {
+      |        ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+69d62c3
