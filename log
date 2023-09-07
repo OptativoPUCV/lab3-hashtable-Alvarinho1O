@@ -186,3 +186,9 @@ hashmap.c:146:12: error: returning ‘HashMap *’ {aka ‘struct HashMap *’} 
 cc1: all warnings being treated as errors
 Compilation failed
 ffb8396
+Thu 07 Sep 2023 07:13:19 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  8|4
+total_score: 30/70
+cdf6f6a
