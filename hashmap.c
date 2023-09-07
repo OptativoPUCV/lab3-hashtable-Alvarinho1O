@@ -87,7 +87,7 @@ HashMap * createMap(long capacity) {
   }
 
   map->size = 0;
-  map->current = 1;
+  map->current = -1;
   map->capacity = capacity;
   
   return map;
