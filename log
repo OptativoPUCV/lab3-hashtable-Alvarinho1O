@@ -175,3 +175,14 @@ Thu 07 Sep 2023 07:12:21 PM UTC:
  tests:  8|4
 total_score: 30/70
 37b9d07
+Thu 07 Sep 2023 07:13:00 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:146:12: error: returning ‘HashMap *’ {aka ‘struct HashMap *’} from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  146 |     return map;
+      |            ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+ffb8396
