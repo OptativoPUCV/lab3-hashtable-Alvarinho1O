@@ -550,3 +550,29 @@ hashmap.c:98:16: error: assignment to ‘Pair **’ from incompatible pointer ty
 cc1: all warnings being treated as errors
 Compilation failed
 14f0e98
+Thu 07 Sep 2023 09:19:04 PM UTC: 
+ hashmap.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:79:3: error: unknown type name ‘HashMapNode’; did you mean ‘HashMap’?
+   79 |   HashMapNode **new_buckets = (HashMapNode **)calloc(new_capacity, sizeof(HashMapNode *));
+      |   ^~~~~~~~~~~
+      |   HashMap
+hashmap.c:79:32: error: ‘HashMapNode’ undeclared (first use in this function); did you mean ‘HashMap’?
+   79 |   HashMapNode **new_buckets = (HashMapNode **)calloc(new_capacity, sizeof(HashMapNode *));
+      |                                ^~~~~~~~~~~
+      |                                HashMap
+hashmap.c:79:32: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:79:46: error: expected expression before ‘)’ token
+   79 |   HashMapNode **new_buckets = (HashMapNode **)calloc(new_capacity, sizeof(HashMapNode *));
+      |                                              ^
+hashmap.c:86:18: error: ‘currentNode’ undeclared (first use in this function)
+   86 |     HashMapNode *currentNode = map->buckets[i];
+      |                  ^~~~~~~~~~~
+hashmap.c:98:16: error: assignment to ‘Pair **’ from incompatible pointer type ‘int **’ [-Werror=incompatible-pointer-types]
+   98 |   map->buckets = new_buckets;
+      |                ^
+cc1: all warnings being treated as errors
+Compilation failed
+d012eb0
