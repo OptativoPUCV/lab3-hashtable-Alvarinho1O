@@ -69,7 +69,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 }
 
 void enlarge(HashMap * map) {
-    enlarge_called = 1; 
+  enlarge_called = 1; 
 
   if (map == NULL) {
     return;
@@ -92,6 +92,7 @@ void enlarge(HashMap * map) {
       new_buckets[pos] = currentPair;
     }
   }
+}
 
   free(map->buckets);
   map->buckets = new_buckets;
