@@ -247,3 +247,22 @@ Thu 07 Sep 2023 07:24:05 PM UTC:
  tests:  11|2
 total_score: 50/70
 9fc5a5f
+Thu 07 Sep 2023 08:24:03 PM UTC: 
+ hashmap.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘firstMap’:
+hashmap.c:152:3: error: expected ‘,’ or ‘;’ before ‘for’
+  152 |   for(int i = map->current ; i < condicion ; i++)
+      |   ^~~
+hashmap.c:152:30: error: ‘i’ undeclared (first use in this function)
+  152 |   for(int i = map->current ; i < condicion ; i++)
+      |                              ^
+hashmap.c:152:30: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:152:49: error: expected ‘;’ before ‘)’ token
+  152 |   for(int i = map->current ; i < condicion ; i++)
+      |                                                 ^
+      |                                                 ;
+hashmap.c:152:49: error: expected statement before ‘)’ token
+Compilation failed
+a08926f
