@@ -143,8 +143,8 @@ Pair * searchMap(HashMap * map,  char * key) {
         return map->buckets[j];
       }
     }
-    return ;
   }
+  return NULL ;
 }
 
 Pair * firstMap(HashMap * map) {
