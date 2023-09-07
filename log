@@ -1,0 +1,19 @@
+Thu 07 Sep 2023 05:00:21 PM UTC: 
+ hashmap.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:49:23: error: expected ‘;’ before ‘}’ token
+   49 |     map->current = pos
+      |                       ^
+      |                       ;
+   50 |   }
+      |   ~                    
+hashmap.c:58:30: error: expected ‘;’ before ‘map’
+   58 |         map->buckets[i] = par
+      |                              ^
+      |                              ;
+   59 |         map->current = j;
+      |         ~~~                   
+Compilation failed
+78d110c
