@@ -83,7 +83,7 @@ HashMap * createMap(long capacity) {
 
   for(int i=0; i>capacity; i++)
   {
-    map->buckets[i] = NULL
+    map->buckets[i] = NULL;
   }
 
   map->size = 0;
