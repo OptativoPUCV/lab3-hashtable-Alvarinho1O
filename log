@@ -829,3 +829,37 @@ hashmap.c:71:22: note: expected ‘HashMap’ {aka ‘struct HashMap’} but arg
       |              ~~~~~~~~^~~
 Compilation failed
 ae1933a
+Thu 07 Sep 2023 09:23:32 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:79:3: error: conversion to non-scalar type requested
+   79 |   Pair new_buckets = (Pair)calloc(new_capacity, sizeof(Pair));
+      |   ^~~~
+hashmap.c:81:19: error: invalid operands to binary != (have ‘Pair’ and ‘void *’)
+   81 |   if (new_buckets != NULL) {
+      |                   ^~
+hashmap.c:86:24: error: invalid initializer
+   86 |     Pair currentPair = map->buckets[i];
+      |                        ^~~
+hashmap.c:87:21: error: invalid operands to binary != (have ‘Pair’ and ‘void *’)
+   87 |     if (currentPair != NULL && currentPair->key != NULL) {
+      |                     ^~
+hashmap.c:87:43: error: invalid type argument of ‘->’ (have ‘Pair’)
+   87 |     if (currentPair != NULL && currentPair->key != NULL) {
+      |                                           ^~
+hashmap.c:88:34: error: invalid type argument of ‘->’ (have ‘Pair’)
+   88 |       long pos = hash(currentPair->key, new_capacity);
+      |                                  ^~
+hashmap.c:89:25: error: subscripted value is neither array nor pointer nor vector
+   89 |       while (new_buckets[pos] == NULL) {
+      |                         ^
+hashmap.c:92:18: error: subscripted value is neither array nor pointer nor vector
+   92 |       new_buckets[pos] = currentPair;
+      |                  ^
+hashmap.c:97:18: error: incompatible types when assigning to type ‘Pair **’ from type ‘Pair’
+   97 |   map->buckets = new_buckets;
+      |                  ^~~~~~~~~~~
+Compilation failed
+b1b1b66
