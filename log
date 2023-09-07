@@ -112,3 +112,22 @@ Thu 07 Sep 2023 05:38:20 PM UTC:
  tests:  4|5
 total_score: 20/70
 320df5a
+Thu 07 Sep 2023 07:03:59 PM UTC: 
+ hashmap.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:104:3: error: expected ‘,’ or ‘;’ before ‘if’
+  104 |   if(map->buckets[pos] == NULL) return NULL;
+      |   ^~
+hashmap.c:117:7: error: expected ‘,’ or ‘;’ before ‘if’
+  117 |       if(map->buckets[j] == NULL) return NULL;
+      |       ^~
+hashmap.c:121:25: error: expected ‘;’ before ‘return’
+  121 |         map->current = j
+      |                         ^
+      |                         ;
+  122 |         return map->buckets[j];
+      |         ~~~~~~           
+Compilation failed
+bdef992
