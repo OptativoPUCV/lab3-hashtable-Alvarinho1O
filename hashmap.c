@@ -46,7 +46,7 @@ void insertMap(HashMap * map, char * key, void * value) {
   if(map->buckets[pos] != NULL) 
   {
     map->buckets[pos] = par;
-    map->current = pos
+    map->current = pos;
   }
   else
   {
@@ -55,7 +55,7 @@ void insertMap(HashMap * map, char * key, void * value) {
       int j = i % map->capacity;
       if(map->buckets[j] == NULL || map->buckets[j]->key == NULL){ 
 
-        map->buckets[i] = par
+        map->buckets[i] = par;
         map->current = j;
         
         break;
