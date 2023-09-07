@@ -75,15 +75,15 @@ void enlarge(HashMap* map) {
     return;
   }
 
-  long new_capacity = map->capacity * 2;
-  Pair new_buckets = (Pair)calloc(new_capacity, sizeof(Pair));
+  long *new_capacity = map->capacity * 2;
+  Pair *new_buckets = (Pair)calloc(new_capacity, sizeof(Pair));
 
   if (new_buckets == NULL) {
     return;
   }
 
   for (long i = 0; i < map->capacity; i++) {
-    Pair currentPair = map->buckets[i];
+    Pair *currentPair = map->buckets[i];
     if (currentPair != NULL && currentPair->key != NULL) {
       long pos = hash(currentPair->key, new_capacity);
       while (new_buckets[pos] != NULL) {

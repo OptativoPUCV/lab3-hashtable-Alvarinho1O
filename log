@@ -610,3 +610,54 @@ hashmap.c:97:18: error: incompatible types when assigning to type ‘Pair **’ 
       |                  ^~~~~~~~~~~
 Compilation failed
 c03c4a0
+Thu 07 Sep 2023 09:19:52 PM UTC: 
+ hashmap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:78:24: error: initialization of ‘long int *’ from ‘long int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   78 |   long *new_capacity = map->capacity * 2;
+      |                        ^~~
+hashmap.c:79:36: error: passing argument 1 of ‘calloc’ makes integer from pointer without a cast [-Werror=int-conversion]
+   79 |   Pair *new_buckets = (Pair)calloc(new_capacity, sizeof(Pair));
+      |                                    ^~~~~~~~~~~~
+      |                                    |
+      |                                    long int *
+In file included from test.c:2:
+/nix/store/iwd8ic5hhwdxn5dga0im55g5hjl270cd-glibc-2.33-47-dev/include/stdlib.h:542:29: note: expected ‘size_t’ {aka ‘long unsigned int’} but argument is of type ‘long int *’
+  542 | extern void *calloc (size_t __nmemb, size_t __size)
+      |                      ~~~~~~~^~~~~~~
+In file included from test.c:4:
+hashmap.c:79:3: error: conversion to non-scalar type requested
+   79 |   Pair *new_buckets = (Pair)calloc(new_capacity, sizeof(Pair));
+      |   ^~~~
+hashmap.c:88:41: error: passing argument 2 of ‘hash’ makes integer from pointer without a cast [-Werror=int-conversion]
+   88 |       long pos = hash(currentPair->key, new_capacity);
+      |                                         ^~~~~~~~~~~~
+      |                                         |
+      |                                         long int *
+hashmap.c:26:29: note: expected ‘long int’ but argument is of type ‘long int *’
+   26 | long hash( char * key, long capacity) {
+      |                        ~~~~~^~~~~~~~
+hashmap.c:89:31: error: invalid operands to binary != (have ‘Pair’ and ‘void *’)
+   89 |       while (new_buckets[pos] != NULL) {
+      |              ~~~~~~~~~~~~~~~~ ^~
+      |                         |
+      |                         Pair
+hashmap.c:90:25: error: invalid operands to binary % (have ‘long int’ and ‘long int *’)
+   90 |         pos = (pos + 1) % new_capacity;
+      |               ~~~~~~~~~ ^
+      |                    |
+      |                    long int
+hashmap.c:92:26: error: incompatible types when assigning to type ‘Pair’ from type ‘Pair *’
+   92 |       new_buckets[pos] = currentPair;
+      |                          ^~~~~~~~~~~
+hashmap.c:97:16: error: assignment to ‘Pair **’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   97 |   map->buckets = new_buckets;
+      |                ^
+hashmap.c:98:17: error: assignment to ‘long int’ from ‘long int *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   98 |   map->capacity = new_capacity;
+      |                 ^
+cc1: all warnings being treated as errors
+Compilation failed
+8bd37db
