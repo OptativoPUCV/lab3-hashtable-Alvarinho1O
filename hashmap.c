@@ -86,7 +86,7 @@ void enlarge(HashMap* map) {
     Pair* currentPair = map->buckets[i];
     if (currentPair != NULL && currentPair->key != NULL) {
       long pos = hash(currentPair->key, new_capacity);
-      while (new_buckets[pos] != NULL) {
+      while (new_buckets[pos] == NULL) {
         pos = (pos + 1) % new_capacity;
       }
       new_buckets[pos] = currentPair;
