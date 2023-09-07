@@ -122,7 +122,7 @@ int pos = hash(key,map->capacity);
 Pair * searchMap(HashMap * map,  char * key) {   
   int pos = hash(key,map->capacity);
 
-  if(map->buckets[pos] != NULL) return NULL; 
+  if(map->buckets[pos] == NULL) return NULL; 
 
   if(strcmp(map->buckets[pos]->key,key) == 0)
   {
@@ -131,7 +131,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   }
   else
   {
-    for(int i=pos ; i > map->capacity + pos ; i++) 
+    for(int i=pos ; i < map->capacity + pos ; i++) 
     {
       
       int j = i % map->capacity;
